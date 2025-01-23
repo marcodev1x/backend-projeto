@@ -44,4 +44,18 @@ export const usersService = {
       console.error(err);
     }
   },
+
+  findUserByEmailAndPassword: async (email: string, password: string) => {
+    try {
+      const findByPassword = await db.user.findUnique({
+        where: {
+          email: email,
+          password: password,
+        },
+      });
+      return findByPassword;
+    } catch (err) {
+      console.error(err);
+    }
+  },
 };

@@ -17,6 +17,7 @@ model User {
   id Int @id @default(autoincrement())
   nome String @db.VarChar(180)
   email String @unique
+  password String @default("null")
   age Int?
   pedidos Pedido[]
 

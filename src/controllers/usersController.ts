@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, RequestHandler, Response } from "express";
 import z from "zod";
 import { usersService } from "../services/userService";
 import { userBody } from "../utils/schemas";
@@ -38,4 +38,8 @@ export const getUniqueUser = async (req: Request, res: Response) => {
 
   const userGet = await usersService.findUniqueUser(email);
   res.status(201).json({ msg: "Sucesso ao buscar usuário", userGet });
+};
+
+export const login = async (req: Request, res: Response) => {
+  res.status(201).json({ msg: "Login " + true });
 };
