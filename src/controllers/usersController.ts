@@ -40,6 +40,6 @@ export const getUniqueUser = async (req: Request, res: Response) => {
   res.status(201).json({ msg: "Sucesso ao buscar usuário", userGet });
 };
 
-export const login = async (req: Request, res: Response) => {
-  res.status(201).json({ msg: "Login " + true });
+export const login: RequestHandler = async (req, res) => {
+  res.json({ user: req.user, token: req.authInfo });
 };
